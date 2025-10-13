@@ -1,5 +1,4 @@
 import Hero from '@/components/Hero'
-import WaitlistForm from '@/components/WaitlistForm'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Testimonials from '@/components/Testimonials'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

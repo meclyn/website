@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import Link from 'next/link'
-//@ts-ignore
+// @ts-expect-error: ajuste de tipagem
 import confetti from 'canvas-confetti'
 
 const ObrigadoPage = () => {
