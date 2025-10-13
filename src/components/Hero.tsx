@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 
 import AppStoreButton from './AppStoreButton'
 import PlayStoreButton from './PlayStoreButton'
+import WaitlistForm from './WaitlistForm'
 
 import { heroDetails } from '@/data/hero'
 
@@ -23,10 +25,17 @@ const Hero: React.FC = () => {
           {heroDetails.heading}
         </h1>
         <p className="mt-4 text-foreground max-w-lg mx-auto">{heroDetails.subheading}</p>
+
+        {/* FORMULÁRIO DA WAITLIST AQUI */}
+        <div className="mt-8 flex justify-center">
+          <WaitlistForm />
+        </div>
+
         <div className="mt-6 flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto">
           <AppStoreButton dark />
           <PlayStoreButton dark />
         </div>
+
         <Image
           src={heroDetails.centerImageSrc}
           width={384}
