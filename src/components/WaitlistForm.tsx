@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 
 const WaitlistForm: React.FC = () => {
@@ -7,21 +7,24 @@ const WaitlistForm: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-    setLoading(true)
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault()
+      if (!email) return
+      setLoading(true)
 
-    try {
-      // Futuramente integrar com mailchimp, formspree, etc
-      await new Promise(res => setTimeout(res, 1000))
-      router.push('/obrigado')
-    } catch (err) {
-      console.error(err)
-    } finally {
-      setLoading(false)
-    }
-  }
+      try {
+        // Futuramente integrar com mailchimp, formspree, etc
+        await new Promise(res => setTimeout(res, 1000))
+        router.push('/obrigado')
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    },
+    [email, router],
+  )
 
   return (
     <form
